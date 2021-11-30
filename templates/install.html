@@ -1,0 +1,65 @@
+{%extends "dual-content-page.html"%}
+{%block title%}Installation - CPS530{%endblock%}
+{%block header%}Installation Guide{%endblock%}
+{%block subheader1%}Semantic UI{%endblock%}
+{%block subheader2%}Flask{%endblock%}
+{%block topText%}
+<div class="row">
+    <div class="one wide computer tablet only column"></div>
+    <div class="fourteen wide computer fourteen wide tablet sixteen wide phone column  space" style="padding: 2%;border-style: solid;border-radius: 25px; border-width: 3px;">
+        <div class="sixteen wide column">
+            <h2 class="ui huge header">Platform Specifications</h2>
+            <hr>
+        </div>
+        <p>For this installation, we will be using Windows 10 64-bit</p>
+    </div>
+    <div class="one wide computer tablet only column"></div>
+</div>
+{%endblock%}
+{%block text1%}
+<div class="column" style="padding-top: 4%;">
+    <h4 class="ui medium header">Link Semantic UI Stylesheet</h4>
+    <p>This method is very simple, yet effective for most users. Semantic UI can be "installed" or "loaded" into any html program using the "&lt;link&gt;" command. The exact tag being used on this page is: </p>
+    <code class="language-html">&lt;link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"&gt;</code>
+    <p>This tag links all UI components and styling of Semantic UI into the HTML file. Additionally, a developer can opt to bring in certain elements using a link tag like this: </p>
+    <code class="language-html">&lt;link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/button.min.css"&gt;</code>
+    <p>This tag links only the button styling of Semantic UI. The links for each component can be found on <a href="https://cdnjs.com/libraries/semantic-ui">CDNJS's website</a></p>
+</div>
+{%endblock%}
+{%block text2%}
+<div class="column" style="padding-top: 4%;">
+    <div>
+        <h4 class="ui medium header">Installing Python</h4>
+        <p>The first step to using Flask is to download Python 3 on your local machine. This can be done using the following <a href="https://www.python.org/downloads/">link</a> and chosing the correct platform (Windows in our case)</p>
+        <img class="ui fluid image" src="https://picsum.photos/id/1020/600/400" alt="" style="padding: 2%;">
+        <p>Once the executable is downloaded, follow the setup wizard.</p>
+    </div>
+    <div style="padding-top: 4%;">
+        <h4 class="ui medium header">Installing Flask</h4>
+        <p>Open the command prompt on your local machine, and ensure python is functioning by typing:</p>
+        <code class="language-bash">
+            C:\Users\USERNAME>python
+        </code>
+        <p>If there is an error, redownload Python. If the results look similiar to this continue on with the steps: </p>
+        <code class="language-bash">
+            Python 3.6.3 (v3.6.3:2c5fed8, Oct  3 2017, 18:11:49) [MSC v.1900 64 bit (AMD64)] on win32
+            Type "help", "copyright", "credits" or "license" for more information.
+            >>>
+        </code>
+
+        <p>
+            Using the command line, we are going to utilize the PIP module built into Python to install Flask. Use the following line (this is case sensitive):
+        </p>
+        <code class="language-bash">
+            pip install flask
+        </code>
+        <p>
+            Flask has been successfully installed into your local computer. To utilize the Flask module, simply import it into any python file using the following python code
+        </p>
+        <code class="language-python">
+            <span style="color: #008800;">from</span> <span style="color: #0e84b5;">flask</span> <span style="color: #008800;">import</span> Flask
+        </code>
+        
+    </div>
+</div>
+{%endblock%}

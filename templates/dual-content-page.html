@@ -1,0 +1,28 @@
+{%extends "header.html" %}
+{%block title%}{%endblock%}
+{%block header%}{%endblock%}
+{%block body%}
+<div class="ui three column centered grid" style="padding-top: 2%;;">
+    {%block topText%}{%endblock%}
+    <div class="one wide computer tablet only column">
+    </div>
+    <div class="six wide computer five six wide tablet sixteen wide phone column space" style="padding: 2%;border-style: solid;border-radius: 25px; border-width: 3px;height: fit-content;">
+        <div class="sixteen wide column" style="text-align:center;">
+            <h2 class="ui huge header">{%block subheader1%}{%endblock%}</h2>
+            <hr>
+        </div>
+        {%block text1%}{%endblock%}
+    </div>
+    <div class="two wide computer only tablet only column"></div>
+    <div class="six wide computer six wide tablet sixteen wide phone column space" style="padding: 2%;border-style: solid;border-radius: 25px; border-width: 3px;height: fit-content;">
+        <div class="sixteen wide column" style="text-align:center;">
+            <h2 class="ui huge header">{%block subheader2%}{%endblock%}</h2>
+            <hr>
+        </div>
+        {%block text2%}{%endblock%}
+    </div>
+    <div class="one wide computer tablet only column">
+    </div>
+    {%block bottomtext%}{%endblock%}
+</div>
+{%endblock%}
