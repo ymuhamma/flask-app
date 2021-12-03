@@ -2,8 +2,7 @@
     <title>{%block title%}{%endblock%}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
-    <script src="https://kit.fontawesome.com/dacb6ce098.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"/>
     <!--START OF STYLE CODE-->
 <style>
@@ -11,7 +10,7 @@
         overflow-x: hidden;
     }
     body{
-        background-color: rgb(216, 216, 216);
+        background-color: #D4D4D4;
     }
     code {
         background-color: #eee;
@@ -34,23 +33,7 @@
 <!--END OF STYLE CODE-->
 </head>
 <body>
-    <div class="ui container fluid" style="padding: 0;">
-        <header class="ui equal width center aligned grid" style="background-color: #00E3FD;background-image: linear-gradient(90deg, #6EF195 0%, #00E3FD 74%);">
-            <div class="row">
-                <div class="column" style="padding-top: 2%;padding-left: 2%;">
-                    <h6 class="ui medium header">Yahya Muhammad</h6>
-                </div>
-                <div class="column" style="text-align:center;padding-top: 2%;">
-                    <h6 class="ui medium header">CPS 530</h6>
-                </div>
-                <div class="column" style="padding-top: 2%;padding-left: 0%;padding-right: 2%;">
-                    <h6 class="ui medium header">500968266</h6>
-                </div>
-            </div>
-            <div class="row" style="text-align:center;padding: 2%;">
-                <h1 class="ui huge header" style="font-size: 275%;">{%block header%}{%endblock%}</h1>
-            </div>
-        </header>
+    <div class="ui container fluid" style="padding: 0;margin-top: 25px;">
         <nav class="ui equal width center aligned grid" style="border-width: 3px;border-style: solid;border-left: 0;border-right: 0;" >
             <div class="row space">
                 <div class="two wide computer two wide tablet six wide phone column"><a href={{url_for("summary")}}>Summary</a></div>

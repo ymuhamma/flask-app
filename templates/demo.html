@@ -1,16 +1,70 @@
 {%extends "header.html" %}
 {%block title%}Demo | CPS530{%endblock%}
-{%block header%}Demo{%endblock%}
+{%block header%}Login{%endblock%}
 {%block body%}
-<div class="ui three column centered grid" style="padding-top: 2%;;">
-    <div class="one wide computer tablet only column"></div>
-
-
-    <div class="fourteen wide computer fourteen wide tablet sixteen wide phone column space" style="padding: 2%;border-style: solid;border-width: 3px;height: 100%;">
-        <h1 class="ui large header">Login </h1>
+<div class="ui three column centered grid" style="padding-top: 2%;">
+    <style>
+        .login{
+            padding: 2%;
+            border-style: solid;
+            border-width: 3px;
+            border-radius: 25px;
+            background-color: white;
+        }
+        input:focus{
+            border: blue;
+        }
+    </style>
+    <div class="eight wide computer ten wide tablet sixteen wide phone column space login">
+        <form class="ui three column centered grid" style="height: fit-content;">
+            <div class="row" style="padding:3%;">
+                <h1 class="ui large header" style="text-align: center;">Sign Up</h1>
+            </div>
+            <div class="row">
+                <div class="two wide column" style="text-align: center;">
+                    <i class="fas fa-user fa-2x" style="bottom:-7.5px;position:relative;"></i>
+                </div>
+                <div class="fourteen wide column">
+                    <div class="ui large input fluid">      
+                        <input type="text" placeholder="Name" name="Name" style="border-radius: 25px;">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="two wide column" style="text-align: center;">
+                    <i class="fas fa-envelope-open-text fa-2x" style="bottom:-7.5px;position:relative;"></i>
+                </div>
+                <div class="fourteen wide column">
+                    <div class="ui large input fluid">      
+                        <input type="email" placeholder="Email" name="Email" style="border-radius: 25px;">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="two wide column" style="text-align: center;">
+                    <i class="fas fa-user-lock fa-2x" style="bottom:-7.5px;position:relative;"></i>
+                </div>
+                <div class="fourteen wide column">
+                    <div class="ui large input fluid">      
+                        <input type="password" placeholder="Password" name="Password" style="border-radius: 25px;">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="ui checkbox">
+                    <input type="checkbox" tabindex="0">
+                    <label>I agree to the Terms and Conditions</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="field" style="padding: 2%;">
+                    <input type="reset" class="ui button">
+                </div>
+                <div class="field" style="padding: 2%;">
+                    <input type="submit" class="ui button" value="Sign Up">
+                </div>
+            </div>
+        </form>
     </div>
-
-
-    <div class="one wide computer tablet only column"></div>
 </div>
 {%endblock%}
