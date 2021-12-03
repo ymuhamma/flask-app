@@ -12,6 +12,56 @@
                 <h2 class="ui huge header">Semantic UI</h2>
                 <hr>
             </div>
+            <p>
+                The biggest advantage of frameworks like Semantic UI, is their ability to make a webpage responsive to different screen sizes. To take advantage of this we must use the
+                bulitin grid system. The grid system within Semantic UI is very similiar to Bootstrap in that the grid has column and rows, each of different sizes to create the perfect
+                layout for the webpage. The Semantic UI grid has 16 subdivided columns, which can be nested.
+                <br><br>
+                To start off any Semantic UI project, in our case a simple great looking sign up page, one must figure out the end goal of the layout. This can be easily done using tools
+                like LayoutIt. The demo was also designed on <a href="https://grid.layoutit.com/?id=2B6mqta">LayoutIt</a>. Once that is completed, we can start the coding section of the 
+                webpage. Firstly, we must import the Semantic UI framework using the following bit of HTML code in the head section of the code.
+                <code class="language-html"style="white-space: pre-wrap;">&lt;link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"&gt;</code>
+                After creating a simple boilerplate HTML code, we can start off by creating a container, this is quiet simple and can be done using the following bit of html code.
+                <code class="language-html"style="white-space: pre-wrap;">&lt;div class="ui container fluid" style="padding: 0;"&gt;</code>
+                The keyword "ui" indicates the use of Semantic UI, the attribute "fluid" make the container as wide as the viewport. Additionally a style is added to remove any padding on the container.
+                The next step is to create a grid within the container to host our sign up div. This is again very simple (a reoccuring theme), and can be done using the following bit of code:
+                <code class="language-html"style="white-space: pre-wrap;">&lt;div class="ui centered grid" style="padding-top: 2%;"&gt;</code>
+                This bit of code creates a grid with a 16 subdivided columns. The keyword "centered", makes all columns centerized in the grid. This will be useful in the next step. In the next step,
+                we will be creating a column, with varying width based on the device that is accessing the page. This can be done using:
+                <code class="language-html"style="white-space: pre-wrap;">&lt;div class="eight wide computer ten wide tablet sixteen wide phone column"&gt;</code>
+                This bit of code creates an 8 out of 16 wide column if the device is a computer or large, a 10 wide column if the device is a tablet or a 16 wide (full screen) wide column if the device is a phone.
+                This gives our code the responsive touch most great webpages have. The next task is to create another grid within the column. This is called nesting. This is exactly the same as the proccess to create a grid
+                before.
+                <code class="language-html"style="white-space: pre-wrap;">&lt;form class="ui two column centered grid" style="height: fit-content;"&gt;</code>
+                The few small noticable differences are the tag type, form. This is because we are creating a form to submit the signup information. As a result the tag used is form and not div. The "two column"
+                keyword specifies that by default this grid has 2 column (this can be override). The rest is exactly the same. We now create a row to host a header, this can be done using the "row" class. Like this:
+                <code class="language-html"style="white-space: pre-wrap;">&lt;div class="row" style="padding:3%;"&gt;</code>
+                This creates a row, in which there are 16 subdivided columns, that can be resized to our liking. We will use the columns implicitly to place our header on the screen using the H1 tag
+                within this row div. Like this:
+                <code class="language-html"style="white-space: pre-wrap;">&lt;div class="row" style="padding:3%;"&gt;
+                    &#09;&lt;h1 class="ui large header" style="text-align: center;"&gt;Sign Up&lt;/h1&gt;
+                    &#09;&lt;/div&gt;</code>
+                To create the logo and form inputs we use create a new row, exactly like before. The next step is to create 2 different sized columns within the row, one for the icon and one for the form.
+                we can do this by creating two divs within a new "row" div. Like this:
+                <code class="language-html" style="white-space: pre-wrap;">&lt;div class="row" style="padding:3%;"&gt;
+                    &#09;&lt;div class="two wide column" style="text-align: center;"&gt;&lt;/div&gt;&#09;
+                    &#09;&lt;div class="fourteen wide column" style="text-align: center;"&gt;&lt;/div&gt;&#09;
+                &lt;/div&gt;</code>
+                We can then add whatever we would like within these columns. Since we are creating a form, we might want to add an icon and a form like this:
+                <code class="language-html" style="white-space: pre-wrap;">&lt;div class="two wide column" style="text-align: center;"&gt;
+                    &lt;i class="fas fa-user fa-2x" style="bottom:-7.5px;position:relative;"&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div class="fourteen wide column"&gt;
+                    &lt;div class="ui large input fluid"&gt;      
+                        &lt;input type="text" placeholder="Name" name="Name" style="border-radius: 25px;"&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;</code>
+                The class "fas fa-user fa-2x" is a font-awesome class for a icon. "ui large input fluid" class, describes the text input field (Large makes the input field relatively large, fluid make it extend the entire div).
+                This bit of code can be repeat as many times as the developer wishes. In our case, we repeat it three times (for email, and password), just slightly modifiying it. A very similiar method is then applied for the buttons and 
+                checkbox.
+                <br>
+                After closing the plethora of div tags, we are now finished!
+            </p>
         </div>
 
 
