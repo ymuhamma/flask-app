@@ -60,7 +60,7 @@
                 This bit of code can be repeat as many times as the developer wishes. In our case, we repeat it three times (for email, and password), just slightly modifiying it. A very similiar method is then applied for the buttons and 
                 checkbox.
                 <br>
-                After closing the plethora of div tags, we are now finished!
+                After closing the plethora of div tags, we are now finished with the sign up wizard. To make the page look even better, we can style the page using tradtional CSS.
             </p>
         </div>
 
@@ -77,10 +77,89 @@
                 <h2 class="ui huge header">Flask</h2>
                 <hr>
             </div>
+            <p>
+                For the Flask portion of the website, we are going to create/add a reusable header and create an app to direct us to the sign up page. To start off we need to create a Flask app. This can be done
+                in a python file with the following bit of code:
+
+                <code class="language-python" style="white-space: pre-wrap;">from flask import Flask, render_template, url_for
+app = Flask(__name__)
+if __name__ == "__main__":
+    app.run()</code>
+
+            This will setup our Flask app, by importing the Flask module (and other important modules), creating an app, and then running it. The next step is to link our old page from Semantic UI to this app. This can be done by
+            first creating a new page within the working directory called "templates" (this must be exact), and putting the file within the new directory. To link the html file to the app we can insert these
+            command into the python file before the if statement.
+
+            <code class="language-python" style="white-space: pre-wrap;">@app.route("/")
+def homepage():
+    return(render_template("FILENAME.html"))
+## **Replace FILENAME with the html filename**</code>
+
+            This will redirect any users accessing our website with filepath or directory being nothing (due to the "/"). This can be changed by changing the parameter to the function decorator. For
+            example we could change the route to "/signUp", which would only redirect to the sign up page if the path was "signUP". The next step is to create an HTML file, in the templates directory, to create a header in.
+            In this file we will make a boilerplate HTML file, and create a header that we like. The header HTML file used on the demo page looked like this
+            <code class="language-html" style="white-space: pre-wrap;">&lt;head&gt;
+                &lt;title&gt;&#123;%block title%&#125;&#123;%endblock%&#125;&lt;/title&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                &lt;link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;div class="ui container fluid" style="padding: 0;"&gt;
+                    &lt;header class="ui equal width center aligned grid" style="background-color: #00E3FD;background-image: linear-gradient(90deg, #6EF195 0%, #00E3FD 74%);"&gt;
+                        &lt;div class="row"&gt;
+                            &lt;div class="column" style="padding-top: 2%;padding-left: 2%;"&gt;
+                                &lt;h6 class="ui medium header"&gt;Yahya Muhammad&lt;/h6&gt;
+                            &lt;/div&gt;
+                            &lt;div class="column" style="text-align:center;padding-top: 2%;"&gt;
+                                &lt;h6 class="ui medium header"&gt;CPS 530&lt;/h6&gt;
+                            &lt;/div&gt;
+                            &lt;div class="column" style="padding-top: 2%;padding-left: 0%;padding-right: 2%;"&gt;
+                                &lt;h6 class="ui medium header"&gt;500968266&lt;/h6&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="row" style="text-align:center;padding: 2%;"&gt;
+                            &lt;h1 class="ui huge header" style="font-size: 275%;"&gt;&#123;%block header%&#125;&#123;%endblock%&#125;&lt;/h1&gt;
+                        &lt;/div&gt;
+                    &lt;/header&gt;
+                    &lt;nav class="ui equal width center aligned grid" style="border-width: 3px;border-style: solid;border-left: 0;border-right: 0;" &gt;
+                        &lt;div class="row space"&gt;
+                            &lt;div class="two wide computer two wide tablet six wide phone column"&gt;&lt;a href={{url_for("summary")}}&gt;Summary&lt;/a&gt;&lt;/div&gt;
+                            &lt;div class="two wide computer two wide tablet six wide phone column"&gt;&lt;a href={{url_for("install")}}&gt;Installation&lt;/a&gt;&lt;/div&gt;
+                            &lt;div class="two wide computer two wide tablet six wide phone column"&gt;&lt;a href={{url_for("tutorial")}}&gt;Tutorial&lt;/a&gt;&lt;/div&gt;
+                            &lt;div class="two wide computer two wide tablet six wide phone column"&gt;&lt;a href={{url_for("demo")}}&gt;Demo&lt;/a&gt;&lt;/div&gt;
+                            &lt;div class="two wide computer two wide tablet six wide phone column"&gt;&lt;a href={{url_for("conclusion")}}&gt;Conclusion&lt;/a&gt;&lt;/div&gt;
+                            &lt;div class="two wide computer two wide tablet six wide phone column"&gt;&lt;a href={{url_for("credits")}}&gt;Credits&lt;/a&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/nav&gt;
+                &#123;%block body%&#125;
+            
+                &#123;%endblock%&#125;
+                &lt;/div&gt;
+            &lt;/body&gt;</code>
+
+            This creates our header. The &#123;%block X%&#125; and &#123;%endblock%&#125; are apart of Jinja2 template langauge. Since this header file will be reusable, we need to be able to replace
+            parts of this could based on the html file using it. We would want to replace the header of the page, the title of the page and the body of the page. Although the navbar and header will remain constant.
+            <br>
+            Moving onto the Semantic UI file (also located in the template directory), we will remove all all the tags that do not belond in the body of the file. And add these jinja2 commands on top:
+            <code class="language-html" style="white-space: pre-wrap;">&#123;%extends "FILENAME.html" %&#125;
+                &#123;%block title%&#125; PAGE TITLE &#123;%endblock%&#125;
+                &#123;%block header%&#125; TITLELOCATED IN THE HEADER &#123;%endblock%&#125;
+                &#123;%block body%&#125;
+                
+                SEMANTIC UI STUFF
+                
+                &#123;%endblock%&#125;</code>
+
+                The first thing we need to update is the FILENAME.html, it needs to be update to the html file that contains the header/nav and boilerplate code. We then need to specify a page title and header title
+                that on complie will replace the title block/title in the header/nav html file. Lastly, we need to add in our semantic ui html code in the body block section. 
+                <br>
+                Thats it, you now have a working Flask app!
+        </p>
         </div>
 
 
         <div class="one wide computer tablet only column"></div>
     </div>
 </div>
+
 {%endblock%}
